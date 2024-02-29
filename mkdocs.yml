@@ -1,0 +1,9 @@
+site_name: Ragr3n
+site_url: https://ragr3n.github.io
+nav:
+  - Home: index.md
+  - Command Cheat Sheet: cheat_sheet.md
+  - Code Snippets: code_snippets.md
+  - Links: links.md
+theme:
+  name: material
