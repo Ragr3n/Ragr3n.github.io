@@ -7,3 +7,17 @@ nav:
   - Links: links.md
 theme:
   name: material
+  palette:
+    - scheme: default
+      primary: custom
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+extra_css:
+  - stylesheets/extra.css
