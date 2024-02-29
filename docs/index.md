@@ -1,2 +1,2 @@
-# Welcome to ragr3n.github.io
-A collection of links, commands and code snippets.
+# Ragr3n Docs
+A personal collection of documentation, links, code snippets, commands and other things that I should've remembered.
