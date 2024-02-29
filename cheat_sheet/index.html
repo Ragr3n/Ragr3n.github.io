@@ -263,6 +263,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#02-github" class="md-nav__link">
+    02 - Github
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -342,6 +349,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#02-github" class="md-nav__link">
+    02 - Github
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -360,8 +374,8 @@
 <h1 id="cheat-sheet">Cheat Sheet</h1>
 <h2 id="01-ssh-keys">01 - SSH Keys</h2>
 <p>Create ssh keys for github and ssh</p>
-<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot; -f ~/.ssh/ssh
-ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot; -f ~/.ssh/github
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;{{ EMAIL@EXAMPLE.COM }}&quot; -f ~/.ssh/ssh
+ssh-keygen -t ed25519 -C &quot;{{ EMAIL@EXAMPLE.COM }}&quot; -f ~/.ssh/github
 </code></pre>
 <p>Edit ssh config and add below</p>
 <pre><code class="language-bash">nano .ssh/config
@@ -373,10 +387,19 @@ ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot; -f ~/.ssh/github
 Host *
   IdentitiesOnly yes
   IdentityFile ~/.ssh/ssh
-  User robin
+  User {{ USERNAME }}
 </code></pre>
+<h2 id="02-github">02 - Github</h2>
 <p>Get github public key and add it to github account at https://github.com/settings/keys</p>
 <pre><code class="language-bash">cat .ssh/github.pub 
+</code></pre>
+<p>Configure git</p>
+<pre><code class="language-bash">git config --global user.name &quot;{{ USERNAME }}&quot;
+git config --global user.email &quot;{{ EMAIL@EXAMPLE.COM }}&quot;
+</code></pre>
+<p>Clone git to current folder or specified folder</p>
+<pre><code class="language-bash">git clone {{ REPO_URL }} .
+git clone {{ REPO_URL }} {{ FOLDER }}
 </code></pre>
 
 
