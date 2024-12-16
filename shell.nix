@@ -7,7 +7,7 @@ let
     # Commit hash for nixos-unstable as of 2019-02-26
     url = https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-23.11.zip;
     # Hash obtained using `nix-prefetch-url --unpack <url>`
-    sha256 = "1a2p27n1y8z5ssk9ngy5d54bjyx419wrqlmcga9hw8i3iacxcqhm";
+    sha256 = "sha256:1f5d2g1p6nfwycpmrnnmc2xmcszp804adp16knjvdkj8nz36y1fg";
   };
 in
 
