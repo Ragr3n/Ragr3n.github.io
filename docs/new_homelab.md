@@ -4,13 +4,13 @@
 My homelab hardware was getting old so this black friday I wanted to order some new parts. 
 
 My requirements were 
-- Smallish formfactor.
-- Fit minimum of 4 HDD:s.
-- Be able to run containers and virtual machines for home automation, dns, backups and reverse proxy 24/7.
-- Be able to run network labs when needed.
-- A chassies that fit a ATX powersupply.
-- A option to in the future install a GPU for LLMs.
-- Reasonable power usage.
+  - Smallish formfactor.
+  - Fit minimum of 4 HDD:s.
+  - Be able to run containers and virtual machines for home automation, dns, backups and reverse proxy 24/7.
+  - Be able to run network labs when needed.
+  - A chassies that fit a ATX powersupply.
+  - A option to in the future install a GPU for LLMs.
+  - Reasonable power usage.
 
 This is what i came up with:
 
