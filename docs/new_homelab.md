@@ -35,8 +35,22 @@ Type|Item
 
 The build was a breaze but I regret not getting a smaller PSU. The Node 304 fit the ATX PSU without an issue but a SFX PSU would probably make the cable managment easier and easier to fit a fullsize GPU in the future.
 
+01 - Proxmox installation
+----------------
+I used a previously set up Ventoy usb to which i added the latest proxmox ISO
+- https://www.ventoy.net/en/doc_start.html
+- https://www.proxmox.com/en/downloads
 
-# Installation preperations
+Boot from the USB and follow the installation guide. I choose to create a ZFS Raid1 mirror using two NVME harddrives for Proxmox and VMs.
+
+After the installation completed i ran the Proxmox VE Helperscript https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install
+
+I also installed bpytop and powertop to monitor temperatures and try to lower power consumption.
+![alt text](images/image.png) 
+![alt text](images/image-1.png)
+
+02 - SSH
+----------------
 Generate SSH keys with commands below. You will be prompted to set a password, do so for the proxmox key but not for the homelab key.
 
 ``` bash
@@ -61,15 +75,9 @@ Host 10.0.10.*
 ...
 ```
 
-# Proxmox Installation
-I used a previously set up Ventoy usb to which i added the latest proxmox ISO
-- https://www.ventoy.net/en/doc_start.html
-- https://www.proxmox.com/en/downloads
-
-Boot from the USB and follow the installation guide. I choose to create a ZFS Raid1 mirror using two NVME harddrives for Proxmox and VMs.
-
-After the installation completed i ran the Proxmox VE Helperscript https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install
-
-I also installed bpytop and powertop to monitor temperatures and try to lower power consumption.
-![alt text](images/image.png) 
-![alt text](images/image-1.png)
+Add the SSH keys to the SSH agent
+``` bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/proxmox
+ssh-add ~/.ssh/homelab
+```
