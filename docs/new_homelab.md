@@ -5,11 +5,11 @@ My homelab hardware was getting old so this black friday I wanted to order some 
 
 My requirements were 
 
-  - Smallish formfactor.
+  - Smallish form factor.
   - Fit minimum of 4 HDD:s.
   - Be able to run containers and virtual machines for home automation, dns, backups and reverse proxy 24/7.
   - Be able to run network labs when needed.
-  - A chassies that fit a ATX powersupply.
+  - A chassis that fit a ATX power supply.
   - A option to in the future install a GPU for LLMs.
   - Reasonable power usage.
 
@@ -33,7 +33,7 @@ Type|Item
 [PCPartPicker Part List](https://pcpartpicker.com/list/ZfTXPJ)
 
 
-The build was a breaze but I regret not getting a smaller PSU. The Node 304 fit the ATX PSU without an issue but a SFX PSU would probably make the cable managment easier and easier to fit a fullsize GPU in the future.
+The build was easy but I regret not getting a smaller PSU. The Node 304 fit the ATX PSU without an issue but a SFX PSU would probably make the cable management easier and easier to fit a full size GPU in the future.
 
 01 - Proxmox installation
 ----------------
@@ -41,7 +41,7 @@ I used a previously set up Ventoy usb to which i added the latest proxmox ISO
 - https://www.ventoy.net/en/doc_start.html
 - https://www.proxmox.com/en/downloads
 
-Boot from the USB and follow the installation guide. I choose to create a ZFS Raid1 mirror using two NVME harddrives for Proxmox and VMs.
+Boot from the USB and follow the installation guide. I choose to create a ZFS Raid1 mirror using two NVME hard drives for Proxmox and VMs.
 
 After the installation completed i ran the Proxmox VE Helperscript https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install
 
@@ -49,23 +49,28 @@ I also installed bpytop and powertop to monitor temperatures and try to lower po
 ![alt text](images/image.png) 
 ![alt text](images/image-1.png)
 
-02 - SSH
+02 - SSH credentials
 ----------------
-Generate SSH keys with commands below. You will be prompted to set a password, do so for the proxmox key but not for the homelab key.
+Generate SSH keys with the commands below. You will be prompted to set a password for each key, it's recommended to do so.
 
 ``` bash
-ssh-keygen -t ed25519 -C root@proxmox-02 -f ~/.ssh/proxmox 
-ssh-keygen -t ed25519 -C robin@home.ragren.com -f ~/.ssh/homelab  
+ssh-keygen -t ed25519 -C "$(whoami)@proxmox-$(hostname)" -f ~/.ssh/proxmox 
+ssh-keygen -t ed25519 -C "$(whoami)@homelab-$(hostname)" -f ~/.ssh/homelab  
+ssh-keygen -t ed25519 -C "$(whoami)@github-$(hostname)"  -f ~/.ssh/github
 ```
 Copy the proxmox public key to trusted hosts of the proxmox server using ssh-copy-id.
 ``` bash
 ssh-copy-id -i ~/.ssh/proxmox root@10.0.10.10   
 ```
+
 Edit SSH config to use the generated key and specify which user to use.
 
 ``` bash
 nano ~/.ssh/config
 ...
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/github
 Host 10.0.10.10
   IdentityFile ~/.ssh/proxmox
   User root
@@ -75,9 +80,160 @@ Host 10.0.10.*
 ...
 ```
 
-Add the SSH keys to the SSH agent
+Add the SSH keys that you will use to the SSH agent
 ``` bash
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/proxmox
 ssh-add ~/.ssh/homelab
+ssh-add ~/.ssh/github
+```
+
+03 - Proxmox API credentials
+----------------
+
+To be able to use Ansible and Terraform to manage Proxmox it's recommended to use API credentials instead of username/password combination. To create those credentials follow the steps bellow logged in as root on the Proxmox server.
+
+
+Add a user:
+``` bash
+pveum user add homelab@pve
+```
+Create a role:
+```bash
+pveum role add HomeLab -privs "Datastore.Allocate Datastore.AllocateSpace Datastore.AllocateTemplate Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify SDN.Use VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt User.Modify"
+```
+Assign the role to the new user:
+```bash
+pveum aclmod / -user homelab@pve -role HomeLab
+```
+Create a authentication token: 
+```bash
+pveum user token add homelab@pve iac --privsep=0
+```
+Then you will presented with something similar to below, save the full-tokenid and value in a safe place for later.
+```bash
+┌──────────────┬──────────────────────────────────────┐
+│ key          │ value                                │
+╞══════════════╪══════════════════════════════════════╡
+│ full-tokenid │ homelab@pve!iac                      │
+├──────────────┼──────────────────────────────────────┤
+│ info         │ {"privsep":"0"}                      │
+├──────────────┼──────────────────────────────────────┤
+│ value        │ 207c9ff1-96f3-44d4-8439-87da57f5fc26 │
+└──────────────┴──────────────────────────────────────┘
+```
+
+04 - Github
+----------------
+Get the generated github public key and add it to your github account at [Github keys](https://github.com/settings/keys)
+```bash
+cat .ssh/github.pub
+```
+Configure git
+```bash
+git config --global user.name Ragr3n
+git config --global user.email robin@ragren.com
+```
+
+05 - Dependencies  
+----------------
+The repo contains files and folders required to manage Proxmox via Ansible, server and container deployment to Proxmox via OpenTofu and NixOS configurations via nixos-rebuild. To make life easier a nix shell is provided with all dependencies that are needed to run Ansible and OpenTofu(Terraform). Get in to the shell by running.
+
+```bash
+nix develop
+```
+
+05 - SOPS
+----------------
+
+Create folder to store age keys in and use the previously generated SSH key to create age keypair.
+```bash
+mkdir -p ~/.config/sops/age/
+nix run nixpkgs#ssh-to-age -- -private-key -i ~/.ssh/homelab > ~/.config/sops/age/keys.txt
+nix shell nixpkgs#age -c age-keygen -y ~/.config/sops/age/keys.txt
+
+age1gwmxg9kqrkfqek4lkkv0l70tsjlvftj4jrevu6a8pf0m34smp43qc27wys
+```
+Copy the age public key that is shown in the terminal and add it to the .sops.yaml file located in the root of the project.
+```bash
+keys:
+  - &primary age1gwmxg9kqrkfqek4lkkv0l70tsjlvftj4jrevu6a8pf0m34smp43qc27wys
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    #- path_regex: secrets/secrets.yaml$
+    key_groups:
+      - age:
+          - *primary
+```
+
+I've saved the clear text version of the secrets/secrets.yaml file in bitwarden but it's also possible to just take the content of secrets/secrets.yaml remove the sops: array and edit the variables since the variable names are stored in clear text. Then use below command to encrypt the file.
+
+```bash
+sops -i -e secrets/secrets.yaml
+```
+Be careful to not commit the file without first encrypting it. Use the VSCode extension @signageos/vscode-sops to easily edit SOPS encrypted files and automatically encrypt them.
+
+
+06 - Templates
+----------------
+Change in to the Ansible directory, edit the inventory/proxmox.yaml file and run one or more playbooks to generate VM or LXC templates in Proxmox.
+```bash
+hl-ansible #Alias for cd *homelabdir*/ansible
+code inventory/proxmox.yml
+ansible-playbook create-template-nixos-vm.yml inventory/proxmox.yml
+ansible-playbook create-template-nixos-lxc.yml inventory/proxmox.yml
+ansible-playbook create-template-hassos-vm.yml inventory/proxmox.yml  
+```
+07 - OpenTofu
+----------------
+Change in to the tofu directory, copy and or edit tofu files.
+
+ - main.tf contains proxmox connection settings.
+ - pve-****-.tf contains vm or container settings.
+
+```bash
+hl-tofu #Alias for cd *homelabdir*/tofu
+code main.tf
+cp pve-vm-nixos-01.tf pve-vm-nixos-02.tf
+code pve-vm-nixos-02.tf
+```
+
+Plan the config and make sure it looks alright and then apply it.
+```bash
+tofu plan
+tofu apply
+```
+
+08 - Adding keys to SOPS
+----------------
+To be able to deploy NixOS configurations with SOPS secrets to remote VM:s/LXC:s. The remote servers age key needs to be added to the .sops.yaml file.
+
+To make the process a bit easier i've made a shell script (update-ssh) that takes an IP as input and then adds the public ssh key to known_hosts, adds the key to .sops.yaml and updates encryption keys for secrets/secrets.yaml
+
+```bash
+update-ssh 
+IP-address: 10.0.10.30
+Syncing keys for file ./secrets/secrets.yaml
+The following changes will be made to the file's groups:
+Group 1
+    age1gwmxg9kqrkfqek4lkkv0l70tsjlvftj4jrevu6a8pf0m34smp43qc27wys
++++ age1gwmxg9kqrkfqek4lkkv0l70tsjlvftj4jrevu6a8pf0m34smp43qc27hek
+```
+09 - NixOS
+----------------
+NixosConfigurations created in the flake.nix can be deployed by using nixos-rebuld and specifying --target-host
+
+
+```bash
+hl-root #Alias for cd *homelabdir*
+nixos-rebuild switch --flake .#vm-nixos-01 --target-host 10.0.10.30 --use-remote-sudo
+nixos-rebuild switch --flake .#lxc-nixos-01 --target-host 10.0.10.31 --use-remote-sudo
+```
+
+10 - Reboot
+----------------
+It is probably a good idea to reboot the newly created LXC:s or VM:s once after creation and initial deploy. That can be accomplished by this one liner.
+```bash
+ssh 10.0.10.30 "sudo reboot"
+ssh 10.0.10.31 "sudo reboot"
 ```
