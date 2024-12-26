@@ -154,7 +154,7 @@ nix shell nixpkgs#age -c age-keygen -y ~/.config/sops/age/keys.txt
 
 age1gwmxg9kqrkfqek4lkkv0l70tsjlvftj4jrevu6a8pf0m34smp43qc27wys
 ```
-Copy the age public key that is shown in the terminal and add it to the .sops.yaml file located in the root of the project.
+Copy the age public key that is shown in the terminal and add it to the .sops.yaml file located in the root of the project. If the file doesn't exist create it with this content and change the age key to the one you generated.
 ```bash
 keys:
   - &primary age1gwmxg9kqrkfqek4lkkv0l70tsjlvftj4jrevu6a8pf0m34smp43qc27wys
@@ -186,10 +186,9 @@ ansible-playbook create-template-hassos-vm.yml inventory/proxmox.yml
 ```
 07 - OpenTofu
 ----------------
-Change in to the tofu directory, copy and or edit tofu files.
+Change in to the tofu directory, copy and or edit tofu files as desired. 
 
- - main.tf contains proxmox connection settings.
- - pve-****-.tf contains vm or container settings.
+I've chosen to keep the provider config in the main.tf file and separate pve-****-.tf files for each deployed host. This way I can easily edit, create new or destroy a host with out affecting others.
 
 ```bash
 hl-tofu #Alias for cd *homelabdir*/tofu
@@ -201,7 +200,34 @@ code pve-vm-nixos-02.tf
 Plan the config and make sure it looks alright and then apply it.
 ```bash
 tofu plan
-tofu apply
+# Output removed
+tofu apply 
+data.sops_file.secrets: Reading...
+data.sops_file.secrets: Read complete after 0s [id=-]
+OpenTofu used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+OpenTofu will perform the following actions:
+
+  # proxmox_virtual_environment_vm.vm-nixos-02 will be created
+  + resource "proxmox_virtual_environment_vm" "vm-nixos-02" {
+      + acpi                    = true
+      + bios                    = "seabios"
+      + id                      = (known after apply)
+      + ipv4_addresses          = (known after apply)
+      # Output abbreviated
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  OpenTofu will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+proxmox_virtual_environment_vm.vm-nixos-02: Creating...
+proxmox_virtual_environment_vm.vm-nixos-02: Creation complete after 8s 
 ```
 
 08 - Adding keys to SOPS
@@ -221,7 +247,7 @@ Group 1
 ```
 09 - NixOS
 ----------------
-NixosConfigurations created in the flake.nix can be deployed by using nixos-rebuld and specifying --target-host
+NixosConfigurations created in the flake.nix can be deployed by using nixos-rebuild and specifying --target-host
 
 
 ```bash
