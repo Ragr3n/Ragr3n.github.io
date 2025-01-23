@@ -1,0 +1,1294 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ragr3n.github.io/homelab_2024/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../cheat_sheet/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>Homelab - Ragr3n</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#homelab-2024" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Ragr3n" class="md-header__button md-logo" aria-label="Ragr3n" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ragr3n
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Homelab
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Ragr3n" class="md-nav__button md-logo" aria-label="Ragr3n" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Ragr3n
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Homelab
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Homelab
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxmox-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proxmox installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Power usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bios" class="md-nav__link">
+    <span class="md-ellipsis">
+      BIOS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu-scaling-governor" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU Scaling Governor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powertop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Powertop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-aspm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto ASPM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credentials
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxmox-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proxmox API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Github
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#homelab-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Homelab repository
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Homelab repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sops" class="md-nav__link">
+    <span class="md-ellipsis">
+      SOPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploying-vms-and-lxcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying VM:s and LXC:s
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying VM:s and LXC:s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Templates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrastructure as code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-vms-and-lxcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing VM:s and LXC:s
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing VM:s and LXC:s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-keys-to-sops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding keys to SOPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nixos" class="md-nav__link">
+    <span class="md-ellipsis">
+      NixOS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reboot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheat_sheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Command Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxmox-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proxmox installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Power usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bios" class="md-nav__link">
+    <span class="md-ellipsis">
+      BIOS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu-scaling-governor" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU Scaling Governor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powertop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Powertop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-aspm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto ASPM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credentials
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxmox-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proxmox API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Github
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#homelab-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Homelab repository
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Homelab repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sops" class="md-nav__link">
+    <span class="md-ellipsis">
+      SOPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploying-vms-and-lxcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying VM:s and LXC:s
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying VM:s and LXC:s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Templates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrastructure as code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-vms-and-lxcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing VM:s and LXC:s
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing VM:s and LXC:s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-keys-to-sops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding keys to SOPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nixos" class="md-nav__link">
+    <span class="md-ellipsis">
+      NixOS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reboot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="homelab-2024">Homelab 2024</h1>
+<p>After years of running my homelab on my old gaming PC I decided to order some new parts this black friday. The goal was to set up a Proxmox host that is powerful enough to run networking LABs when i want but power efficient enough to keep running 24/7 without impacting my electricity bill to much. </p>
+<h2 id="hardware">Hardware</h2>
+<p>The hardware requirements i had on the new server was as below.</p>
+<ul>
+<li>Chassis<ul>
+<li>Smallish form factor</li>
+<li>Fit a ATX power supply (to minimize cost)</li>
+<li>Fit a minimum of 4 HDD:s</li>
+<li>Possibility to expand with a GPU for LLM:s in the future</li>
+</ul>
+</li>
+<li>Motherboard<ul>
+<li>M-ITX</li>
+<li>Intel network card</li>
+<li>Two M2 NVMe slots</li>
+<li>Four SATA ports</li>
+<li>A PCI-e slot</li>
+</ul>
+</li>
+<li>CPU<ul>
+<li>Quicksync support</li>
+<li>More cores than my previous build (8)   </li>
+</ul>
+</li>
+<li>Memory<ul>
+<li>As much as possible</li>
+</ul>
+</li>
+<li>Reasonable power usage.</li>
+</ul>
+<p>After quite a lot of research i ended up with these parts:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Item</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>CPU</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/mtmmP6/intel-core-i5-13500-25-ghz-14-core-processor-bx8071513500">Intel Core i5-13500 2.5 GHz 14-Core Processor</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CPU Cooler</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/nJqPxr/noctua-nh-l9i-17xx-chromaxblack-3384-cfm-cpu-cooler-nh-l9i-17xx-chromaxblack">Noctua NH-L9i-17xx chromax.black 33.84 CFM CPU Cooler</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Motherboard</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/YxLFf7/asus-rog-strix-b760-i-gaming-wifi-mini-itx-lga1700-motherboard-rog-strix-b760-i-gaming-wifi">Asus ROG STRIX B760-I GAMING WIFI Mini ITX LGA1700 Motherboard</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Memory</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/BLdG3C/crucial-pro-96-gb-2-x-48-gb-ddr5-5600-cl46-memory-cp2k48g56c46u5">Crucial Pro 96 GB (2 x 48 GB) DDR5-5600 CL46 Memory</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Storage</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/GTCD4D/western-digital-blue-1tb-25-solid-state-drive-wds100t2b0a">Western Digital Blue 1 TB 2.5" Solid State Drive</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Storage</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/GTCD4D/western-digital-blue-1tb-25-solid-state-drive-wds100t2b0a">Western Digital Blue 1 TB 2.5" Solid State Drive</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Storage</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/ccFbt6/kingston-kc3000-1024-tb-m2-2280-nvme-solid-state-drive-skc3000s1024g">Kingston KC3000 1.024 TB M.2-2280 PCIe 4.0 X4 NVME Solid State Drive</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Storage</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/ccFbt6/kingston-kc3000-1024-tb-m2-2280-nvme-solid-state-drive-skc3000s1024g">Kingston KC3000 1.024 TB M.2-2280 PCIe 4.0 X4 NVME Solid State Drive</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Storage</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/6MX2FT/seagate-ironwolf-4tb-35-5900rpm-internal-hard-drive-st4000vn008">Seagate IronWolf NAS 4 TB 3.5" 5900 RPM Internal Hard Drive</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Storage</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/6MX2FT/seagate-ironwolf-4tb-35-5900rpm-internal-hard-drive-st4000vn008">Seagate IronWolf NAS 4 TB 3.5" 5900 RPM Internal Hard Drive</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Case</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/BWFPxr/fractal-design-case-fdcanode304bl">Fractal Design Node 304 Mini ITX Tower Case</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Power Supply</strong></td>
+<td style="text-align: left;"><a href="https://pcpartpicker.com/product/DRVG3C/asus-rog-strix-650-w-80-gold-certified-fully-modular-atx-power-supply-rog-strix-650g">Asus ROG Strix 650 W 80+ Gold Certified Fully Modular ATX Power Supply</a></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://pcpartpicker.com/list/ZfTXPJ">PCPartPicker Part List</a></p>
+<p>The build was easy but I regret not getting a smaller PSU. The Node 304 fit the ATX PSU without any issues but a SFX PSU would have made the cable management and fitting a full length GPU in the future easier.</p>
+<h2 id="proxmox-installation">Proxmox installation</h2>
+<p>It's as easy as creating a bootable USB, boot from the USB and follow the installation wizard.</p>
+<p>I used a previously created <a href="https://www.ventoy.net/en/doc_start.html">Ventoy</a> stick to which I added the latest <a href="https://www.proxmox.com/en/downloads">Proxmox ISO</a>. For storage I used two NVMe disks in a raidz mirror.</p>
+<p>After the installation completed I ran the <a href="https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install">Proxmox VE Post Install</a> script from the community project Proxmox Helperscripts.</p>
+<blockquote>
+<p>This script provides options for managing Proxmox VE repositories, including disabling the Enterprise Repo, adding or correcting PVE sources, enabling the No-Subscription Repo, adding the test Repo, disabling the subscription nag, updating Proxmox VE, and rebooting the system.</p>
+</blockquote>
+<p>To use the script run below as root on the Proxmox server.</p>
+<pre><code class="language-bash">bash -c &quot;$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pve-install.sh)&quot;
+</code></pre>
+<p>In the future i might try to create a ansible role that does the same thing since it isn't exactly best practice to run a shell script as root from an external source.</p>
+<h2 id="power-usage">Power usage</h2>
+<p>One of the most important parts of the new build was to keep the power consumption at a minimum. Below are the steps I took to try to minimize consumption. </p>
+<h3 id="bios">BIOS</h3>
+<p>Update the BIOS by downloading the latest version from the Asus website, unzip it and transfer it to an empty USB stick. Boot in to BIOS, find the BIOS update utility and select the file that was transferred to the USB stick.</p>
+<p>Enable C-states, Native ASPM and disable all unused onboard devices as Wifi and HDA. I read that disabling turbo would help but I haven't seen that in my short term testing so I need to verify that. I also need to document the exact BIOS settings a bit more.</p>
+<h3 id="cpu-scaling-governor">CPU Scaling Governor</h3>
+<p>For this I used another script from Proxmox Helperscript. </p>
+<p>Description from the <a href="https://community-scripts.github.io/ProxmoxVE/scripts">Proxmox Helperscript website</a>:</p>
+<blockquote>
+<p>The CPU scaling governor determines how the CPU frequency is adjusted based on the workload, with the goal of either conserving power or improving performance. By scaling the frequency up or down, the operating system can optimize the CPU usage and conserve energy when possible. Generic Scaling Governors</p>
+</blockquote>
+<p>Run below as root on the Proxmox server.</p>
+<pre><code class="language-bash">bash -c &quot;$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/scaling-governor.sh)&quot;
+</code></pre>
+<p>Select the powersaving scaling governor and add the cronjob.
+<img alt="alt text" src="../images/cpuscale3.png" />
+<img alt="alt text" src="../images/cpuscale5.png" /></p>
+<h3 id="powertop">Powertop</h3>
+<p>I noticed that powertop in the apt repo was out of date so I had to build it from source since the older version was lacking support for 13th gen CPU:s. Below are the commands to build powertop from source. </p>
+<pre><code class="language-bash">apt install git build-essential autoconf-archive ncurses-dev libnl-3-dev libpci-dev pkg-config libtool-bin autopoint gettext libnl-genl-3-dev
+git clone https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git
+cd libtraceevent; make; make install; cd ..;
+git clone https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git
+cd libtracefs; make; make install; cd ..;
+git clone https://github.com/fenrus75/powertop.git
+cd powertop
+./autogen.sh
+./configure
+make install
+</code></pre>
+<p>Running <code>powertop</code> in interactive mode shows what tunables are available and what C-states are being achieved by the CPU:s and package.</p>
+<p><img alt="alt text" src="../images/powertop1.png" />
+<img alt="alt text" src="../images/powertop2.png" />
+<img alt="alt text" src="../images/powertop3.png" /></p>
+<p>Running <code>powertop --auto-tune</code> will set all tunables to GOOD. To make the tweaks persistent create a systemd service to run <code>powertop --auto-tune</code> at each boot.</p>
+<pre><code class="language-bash">nano /etc/systemd/system/powertop.service
+</code></pre>
+<p>Add below to that file.</p>
+<pre><code class="language-bash">[Unit]
+Description=Powertop tunings
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/powertop --auto-tune
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Reload systemctl and enable the service.</p>
+<pre><code class="language-bash">systemctl daemon-reload
+systemctl enable powertop.service
+</code></pre>
+<h3 id="auto-aspm">Auto ASPM</h3>
+<p>Description from the <a href="https://en.wikipedia.org/wiki/Active_State_Power_Management">Wikipedia site for ASPM</a>:</p>
+<blockquote>
+<p>Active-state power management (ASPM) is a power management mechanism for PCI Express devices to garner power savings while otherwise in a fully active state. </p>
+</blockquote>
+<p>The Auto ASPM script enables ASPM for all PCIe devices that support it.</p>
+<p>Download the Auto ASPM Script and run it.</p>
+<pre><code class="language-bash">wget https://raw.githubusercontent.com/notthebee/AutoASPM/refs/heads/main/autoaspm.py
+python3 autoaspm.py
+00:06.0: Already has ASPM L0sL1 enabled
+00:1a.0: Already has ASPM L1 enabled
+00:1c.0: Already has ASPM L0sL1 enabled
+00:1c.2: Already has ASPM L1 enabled
+00:1d.0: Already has ASPM L0sL1 enabled
+01:00.0: Already has ASPM L1 enabled
+02:00.0: Already has ASPM L1 enabled
+04:00.0: Already has ASPM L1 enabled
+</code></pre>
+<p>Like with powertop create a service that runs it at each boot.</p>
+<pre><code class="language-bash">nano /etc/systemd/system/autoaspm.service
+</code></pre>
+<p>Add below to that file.</p>
+<pre><code class="language-bash">[Unit]
+Description=Automatically activate ASPM on all supported devices
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /root/autoaspm.py
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Reload systemctl and enable the service.</p>
+<pre><code class="language-bash">systemctl daemon-reload
+systemctl enable autoaspm.service
+</code></pre>
+<h3 id="conclusion">Conclusion</h3>
+<p>With only the NVME mirror and networking connected i was able to get the server to idle around 18W but if I disconnect the network cable it drops to 13W. I've tried updating to a kernel with newer drivers, disabling WOL, enabling EEE and combed the Internet for firmware patches but nothing seems to make a difference. I also tried to install a separate PCIe network card but it didn't make any difference either. My guess is that it might not be the network card that draws 5W but rather that the cpu package can't get to higher C-states while networking is active.</p>
+<h2 id="credentials">Credentials</h2>
+<p>To manage my homelab credentials for Github, Proxmox, VM:s and LXC:s are required. I use three separate SSH keys for authenticating, one with Github,one with Proxmox and one with the rest of my homelab. For Proxmox its's recommended to also generate API credentials to use with Ansible and OpenTofu. </p>
+<h3 id="ssh">SSH</h3>
+<p>Generate SSH keys with the commands below. You will be prompted to set a password for each key, it's recommended to do so.</p>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;$(whoami)@proxmox-$(hostname)&quot; -f ~/.ssh/proxmox 
+ssh-keygen -t ed25519 -C &quot;$(whoami)@homelab-$(hostname)&quot; -f ~/.ssh/homelab  
+ssh-keygen -t ed25519 -C &quot;$(whoami)@github-$(hostname)&quot;  -f ~/.ssh/github
+</code></pre>
+<p>Copy the Proxmox public key to trusted hosts of the Proxmox server using ssh-copy-id.</p>
+<pre><code class="language-bash">ssh-copy-id -i ~/.ssh/proxmox root@10.0.10.10
+</code></pre>
+<p>Edit the SSH config to use the generated keys and specify which user to use.</p>
+<pre><code class="language-bash">nano ~/.ssh/config
+...
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/github
+Host 10.0.10.10
+  IdentityFile ~/.ssh/proxmox
+  User root
+Host 10.0.10.*
+  IdentityFile ~/.ssh/homelab
+  User robin
+...
+</code></pre>
+<p>Add the SSH-keys to the SSH-agent. That way you wont be prompted to enter a password for each SSH connection until you close the terminal.</p>
+<pre><code class="language-bash">eval &quot;$(ssh-agent -s)&quot;
+ssh-add ~/.ssh/proxmox
+ssh-add ~/.ssh/homelab
+ssh-add ~/.ssh/github
+</code></pre>
+<h3 id="proxmox-api">Proxmox API</h3>
+<p>To create Proxmox API credentials follow the steps bellow logged in as root on the Proxmox server.</p>
+<p>Add a user:</p>
+<pre><code class="language-bash">pveum user add homelab@pve
+</code></pre>
+<p>Create a role:</p>
+<pre><code class="language-bash">pveum role add HomeLab -privs &quot;Datastore.Allocate Datastore.AllocateSpace Datastore.AllocateTemplate Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify SDN.Use VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt User.Modify&quot;
+</code></pre>
+<p>Assign the role to the new user:</p>
+<pre><code class="language-bash">pveum aclmod / -user homelab@pve -role HomeLab
+</code></pre>
+<p>Create a authentication token: </p>
+<pre><code class="language-bash">pveum user token add homelab@pve iac --privsep=0
+</code></pre>
+<p>Then you will presented with something similar to below, save the full-tokenid and value in a safe place for later.</p>
+<pre><code class="language-bash">┌──────────────┬──────────────────────────────────────┐
+│ key          │ value                                │
+╞══════════════╪══════════════════════════════════════╡
+│ full-tokenid │ homelab@pve!iac                      │
+├──────────────┼──────────────────────────────────────┤
+│ info         │ {&quot;privsep&quot;:&quot;0&quot;}                      │
+├──────────────┼──────────────────────────────────────┤
+│ value        │ 207c9ff1-96f3-44d4-8439-87da57f5fc26 │
+└──────────────┴──────────────────────────────────────┘
+</code></pre>
+<h3 id="github">Github</h3>
+<p>We have already generated the SSH key to use with Github but we need to add the public key to our Gihub account. </p>
+<p>Get the generated github public key and add it to your github account at <a href="https://github.com/settings/keys">Github keys</a></p>
+<pre><code class="language-bash">cat .ssh/github.pub
+</code></pre>
+<p>Configure git </p>
+<pre><code class="language-bash">git config --global user.name Ragr3n
+git config --global user.email robin@ragren.com
+</code></pre>
+<h2 id="homelab-repository">Homelab repository</h2>
+<p>In a previous version of this project I had the ambition to deploy everything from Nix, to generate Terraform and Ansible code from nix run commands as well as building NixOS configurations. I managed to do that but it added to much complexity and I felt like I lost a bit of control. The build times increased and I wouldn't be able to reuse my code if I wanted to switch to something other than Nix. Therefore I've taken a step back and let Terraform, Ansible and NixOS be it's own and use the power of Nix when applicable.</p>
+<p>The rest of the commands in this write up I run on my laptop running NixOS. Any non Nix specific commands should work as long as there dependencies are installed eg. Ansible or OpenTofu.</p>
+<p>Below is a overview of the repository. The project is still in it's beginning so changes will occur as I go along.</p>
+<pre><code class="language-bash">.
+├── ansible
+│   ├── inventory
+│   ├── roles
+│   ├── ansible.cfg
+│   ├── create-template-hassos-vm.yml
+│   ├── create-template-nixos-lxc.yml
+│   ├── create-template-nixos-vm.yml
+│   └── destroy-templates.yml
+├── nixos
+│   ├── hosts
+│   └── modules
+├── secrets
+│   └── secrets.yaml
+├── tofu
+│   ├── main.tf
+│   ├── pve-lxc-nixos-01.tf
+│   ├── pve-vm-nixos-01.tf
+├── .vscode
+│   └── settings.json
+├── flake.nix
+├── .gitignore
+└── .sops.yaml
+</code></pre>
+<p>We need to start by cloning the repository. (I need to make the repository public)</p>
+<pre><code class="language-bash">git clone XXX
+</code></pre>
+<p>The nix flake contains a dev shell which provides all dependencies as well as some aliases to make things easier.</p>
+<pre><code class="language-nix">  # flake.nix
+    devShell.${system} = pkgs.mkShell {
+      system = &quot;x86_64-linux&quot;;
+      shellHook = ''
+        export HOMELABROOT=$(pwd)
+        alias hl-root=&quot;cd $HOMELABROOT&quot;
+        alias hl-ansible=&quot;cd $HOMELABROOT/ansible&quot;
+        alias hl-tofu=&quot;cd $HOMELABROOT/tofu&quot;
+        alias hl-update-ssh=&quot;hl-root &amp;&amp; nix run .#hl-update-ssh&quot;
+        alias hl-update-age=&quot;hl-root &amp;&amp; nix run .#hl-update-age&quot;
+    '';
+      packages = with pkgs; [
+        ansible
+        opentofu
+        nixos-generators
+        (pkgs.python3.withPackages (python-pkgs: [
+          python-pkgs.proxmoxer
+          python-pkgs.requests
+          python-pkgs.jmespath
+        ]))
+        ssh-to-age
+        yq-go
+      ];
+    };
+</code></pre>
+<p>To get in to the shell run.</p>
+<pre><code class="language-bash">nix develop
+</code></pre>
+<h3 id="sops">SOPS</h3>
+<p>SOPS is a editor that encrypts/decrypts files. One way to use SOPS is to store variables in a yaml file and encrypt the values using a age keypair derived from a SSH key. We can then use the variables in Ansible, Tofu and NixOS and store our secret variables in git.</p>
+<p>Create a folder to store age keys in and use the previously generated SSH key to create age keypair.</p>
+<pre><code class="language-bash">mkdir -p ~/.config/sops/age/
+nix run nixpkgs#ssh-to-age -- -private-key -i ~/.ssh/homelab &gt; ~/.config/sops/age/keys.txt
+nix shell nixpkgs#age -c age-keygen -y ~/.config/sops/age/keys.txt
+
+age1gwmxg9kqrkfqek4lkkv0l70tsjlvftj4jrevu6a8pf0m34smp43qc27wys
+</code></pre>
+<p>Copy the age key that is shown in the terminal and add it to the .sops.yaml file located in the root of the project. If the file doesn't exist create it with this content and change the age key to the one you generated.</p>
+<pre><code class="language-bash">keys:
+  - &amp;primary age1gwmxg9kqrkfqek4lkkv0l70tsjlvftj4jrevu6a8pf0m34smp43qc27wys
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    #- path_regex: secrets/secrets.yaml$
+    key_groups:
+      - age:
+          - *primary
+</code></pre>
+<p>I've saved the clear text version of the secrets/secrets.yaml file in bitwarden but it's also possible to just take the content of secrets/secrets.yaml remove the sops: array and edit the variables since the variable names are stored in clear text. Then use below command to encrypt the file.</p>
+<pre><code class="language-bash">sops -i -e secrets/secrets.yaml
+</code></pre>
+<p>Be careful to not commit the file without first encrypting it. Use the VSCode extension @signageos/vscode-sops to easily edit SOPS encrypted files and automatically encrypt them.</p>
+<h3 id="deploying-vms-and-lxcs">Deploying VM:s and LXC:s</h3>
+<h4 id="templates">Templates</h4>
+<p>I've created a couple of Ansible roles to deploy VM and LXC templates to Proxmox, this is how to use them.</p>
+<p>Change in to the Ansible directory, edit the inventory/proxmox.yaml file and run one or more playbooks to generate VM or LXC templates in Proxmox.</p>
+<pre><code class="language-bash">hl-ansible #Alias for cd *homelabdir*/ansible
+code inventory/proxmox.yml
+ansible-playbook create-template-nixos-vm.yml -i inventory/proxmox.yml
+ansible-playbook create-template-nixos-lxc.yml -i inventory/proxmox.yml
+ansible-playbook create-template-hassos-vm.ymlt -i inventory/proxmox.yml  
+</code></pre>
+<h4 id="infrastructure-as-code">Infrastructure as code</h4>
+<p>Terraform is a tool that makes it possible to define infrastructure as code and OpenTofu is a open source fork of Terraform.</p>
+<p>I've chosen to keep the provider config in the main.tf file and separate pve-****-.tf files for each deployed node. This way I can easily edit, create new or destroy nodes without affecting others.</p>
+<p>Change in to the tofu directory, copy and or edit tofu files as desired.</p>
+<pre><code class="language-bash">hl-tofu #Alias for cd *homelabdir*/tofu
+code main.tf
+cp pve-vm-nixos-01.tf pve-vm-nixos-02.tf
+code pve-vm-nixos-02.tf
+</code></pre>
+<p>Plan the config and make sure it looks alright and then apply it.</p>
+<pre><code class="language-bash">tofu plan
+# Output removed
+tofu apply 
+data.sops_file.secrets: Reading...
+data.sops_file.secrets: Read complete after 0s [id=-]
+OpenTofu used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+OpenTofu will perform the following actions:
+
+  # proxmox_virtual_environment_vm.vm-nixos-02 will be created
+  + resource &quot;proxmox_virtual_environment_vm&quot; &quot;vm-nixos-02&quot; {
+      + acpi                    = true
+      + bios                    = &quot;seabios&quot;
+      + id                      = (known after apply)
+      + ipv4_addresses          = (known after apply)
+      # Output abbreviated
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  OpenTofu will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+proxmox_virtual_environment_vm.vm-nixos-02: Creating...
+proxmox_virtual_environment_vm.vm-nixos-02: Creation complete after 8s 
+</code></pre>
+<h3 id="managing-vms-and-lxcs">Managing VM:s and LXC:s</h3>
+<h4 id="adding-keys-to-sops">Adding keys to SOPS</h4>
+<p>To be able to deploy NixOS configurations that utilizes SOPS to remote servers, the remote servers age key needs to be added to the .sops.yaml file.</p>
+<p>To make the process a bit easier i've made a shell script (update-age) that takes an IP as input and then adds the public ssh key to known_hosts, adds the key to .sops.yaml and updates encryption keys for secrets/secrets.yaml</p>
+<pre><code class="language-bash">update-age 
+IP-address: 10.0.10.30
+Syncing keys for file ./secrets/secrets.yaml
+The following changes will be made to the file's groups:
+Group 1
+    age1gwmxg9kqrkfqek4lkkv0l70tsjlvftj4jrevu6a8pf0m34smp43qc27wys
++++ age1gwmxg9kqrkfqek4lkkv0l70tsjlvftj4jrevu6a8pf0m34smp43qc27hek
+</code></pre>
+<h4 id="nixos">NixOS</h4>
+<p>NixosConfigurations created in the flake.nix can be deployed by using nixos-rebuild and specifying --target-host</p>
+<pre><code class="language-bash">hl-root #Alias for cd *homelabdir*
+nixos-rebuild switch --flake .#vm-nixos-01 --target-host 10.0.10.30  --use-remote-sudo --build-host 10.0.10.30 --use-substitutes --fast
+nixos-rebuild switch --flake .#lxc-nixos-01 --target-host 10.0.10.31 --use-remote-sudo
+</code></pre>
+<h4 id="reboot">Reboot</h4>
+<p>It is probably a good idea to reboot the newly created LXC:s or VM:s once after creation and initial deploy. That can be accomplished by this one liner.</p>
+<pre><code class="language-bash">ssh 10.0.10.30 &quot;sudo reboot&quot;
+ssh 10.0.10.31 &quot;sudo reboot&quot;
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
