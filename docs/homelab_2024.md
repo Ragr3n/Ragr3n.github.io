@@ -4,6 +4,7 @@ After years of running my homelab on my old gaming PC I decided to order some ne
 
 ## Hardware
 The hardware requirements i had on the new server was as below.
+
   - Chassis
     - Smallish form factor
     - Fit a ATX power supply (to minimize cost)
@@ -23,6 +24,7 @@ The hardware requirements i had on the new server was as below.
   - Reasonable power usage.
 
 After quite a lot of research i ended up with these parts:
+
 Type|Item
 :----|:----
 **CPU** | [Intel Core i5-13500 2.5 GHz 14-Core Processor](https://pcpartpicker.com/product/mtmmP6/intel-core-i5-13500-25-ghz-14-core-processor-bx8071513500)
